@@ -1,0 +1,12 @@
+{
+  "name": "cashier-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "terminal-kit": "^2.3.0"
+  },
+  "author": "Luigi Moraes"
+}
