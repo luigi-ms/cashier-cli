@@ -1,10 +1,10 @@
-import chalk from "chalk";
-import * as readline from "node:readline/promises";
+const chalk = require("chalk");
+const readline = require("readline/promises");
 
-import help from "./commands/help.js";
-import list from "./commands/list.js";
-import newSale from "./commands/new-sale.cjs";
-import search from "./commands/search.cjs";
+const help = require("./commands/help.cjs");
+const list = require("./commands/list.cjs");
+const newSale = require("./commands/new-sale.cjs");
+const search = require("./commands/search.cjs");
 
 const read = readline.createInterface({
   input: process.stdin,

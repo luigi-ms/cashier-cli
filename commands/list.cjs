@@ -1,5 +1,5 @@
-import getAllProducts from "../connect.cjs";
-import Table from "cli-table";
+const getAllProducts = require("../connect.cjs");
+const Table = require("cli-table");
 
 function createTable(list){
   const simplifiedList = list.data.map(prod => {
@@ -22,7 +22,7 @@ function createTable(list){
   return Promise.resolve(table.toString());
 }
 
-export default async function list(){
+async function list(){
   const products = await getAllProducts();
   const table = createTable(products);
 
@@ -30,3 +30,5 @@ export default async function list(){
     ? Promise.resolve(table)
     : Promise.reject(new Error("An error occured"));
 }
+
+module.exports = list;

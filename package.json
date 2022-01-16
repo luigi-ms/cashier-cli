@@ -1,13 +1,15 @@
 {
   "name": "cashier-cli",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.cjs",
   "license": "MIT",
-  "type": "module",
   "dependencies": {
     "axios": "^0.24.0",
     "chalk": "^4.0.0",
     "cli-table": "^0.3.11"
+  },
+  "scripts": {
+    "start": "node index.cjs"
   },
   "author": "Luigi Moraes"
 }

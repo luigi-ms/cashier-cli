@@ -1,4 +1,4 @@
-export default function help(styled){
+function help(styled){
   [
     "help - Exibe todos os comandos disponiveis",
     "list - Lista os produtos existentes na base de dados",
@@ -9,3 +9,5 @@ export default function help(styled){
     console.log(styled("\t"+command));
   });
 }
+
+module.exports = help;
