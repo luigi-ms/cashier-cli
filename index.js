@@ -2,6 +2,9 @@ import chalk from "chalk";
 import * as readline from "node:readline/promises";
 
 import help from "./commands/help.js";
+import list from "./commands/list.js";
+import newSale from "./commands/new-sale.cjs";
+import search from "./commands/search.cjs";
 
 const read = readline.createInterface({
   input: process.stdin,
@@ -21,22 +24,33 @@ async function capture(){
     : Promise.reject(warning("Nothing inserted"));
 }
 
-function handleCommand(input){
+async function handleCommand(input){
   switch(input){
-    case "start":
-      console.log(prompt("Welcome!"));
+    case "":
       break;
     case "help":
       help(response);
       break;
     case "list":
-      console.log(response("\nListing...\n"));
+      const prods = await list();
+
+      if(prods instanceof Error){
+        console.error(error(prods.message));
+      }else{
+        console.log(response(prods));
+      }
+      break;
+    case "new-sale":
+      console.log(response("\nOpening...\n"));
       break;
     case "search":
       console.log(response("Searching..."));
       break;
+    case "start":
+      console.log(prompt("Welcome!\nType help to see available commands\n"));
+      break;
     case "quit":
-      console.log(response("\nQuiting...\n"));
+      console.log(response("See you later!\n"));
       process.exit();
       break;
     default:
@@ -48,7 +62,7 @@ function handleCommand(input){
     .then(res => handleCommand(res))
     .catch(rej => {
       console.warn(rej);
-      process.exit();
+      handleCommand("");
     });
 }
 
