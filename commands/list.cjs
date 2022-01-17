@@ -1,4 +1,4 @@
-const getAllProducts = require("../connect.cjs");
+const { getAllProducts } = require("../connect.cjs");
 const Table = require("cli-table");
 
 function createTable(list){

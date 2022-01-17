@@ -25,13 +25,18 @@ async function capture(){
 }
 
 async function handleCommand(input){
-  switch(input){
+  const command = input[0];
+
+  switch(command){
+    case 1:
+      console.log(prompt("Welcome!\nType h to see available commands\n"));
+      break;
     case "":
       break;
-    case "help":
+    case "h":
       help(response);
       break;
-    case "list":
+    case "l":
       const prods = await list();
 
       if(prods instanceof Error){
@@ -40,16 +45,14 @@ async function handleCommand(input){
         console.log(response(prods));
       }
       break;
-    case "new-sale":
+    case "n":
       console.log(response("\nOpening...\n"));
       break;
-    case "search":
+    case "s":
+      const index = input.substring(2);
       console.log(response("Searching..."));
       break;
-    case "start":
-      console.log(prompt("Welcome!\nType help to see available commands\n"));
-      break;
-    case "quit":
+    case "q":
       console.log(response("See you later!\n"));
       process.exit();
       break;
@@ -66,4 +69,4 @@ async function handleCommand(input){
     });
 }
 
-handleCommand("start");
+handleCommand(1);
