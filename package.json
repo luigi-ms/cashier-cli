@@ -2,7 +2,7 @@
   "name": "cashier-cli",
   "version": "1.0.0",
   "main": "index.cjs",
-  "license": "MIT",
+  "license": "GNU AGPLv3",
   "dependencies": {
     "axios": "^0.24.0",
     "chalk": "^4.0.0",
@@ -11,5 +11,12 @@
   "scripts": {
     "start": "node index.cjs"
   },
-  "author": "Luigi Moraes"
+  "author": {
+    "name": "Luigi Moraes",
+    "email": "luigimoraessantos@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luigi-ms-git/cashier-cli"
+  }
 }
